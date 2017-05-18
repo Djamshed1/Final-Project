@@ -18,4 +18,6 @@ Startup instructions
 
 9. Open browser and go to this link http://0.0.0.0:5000/login
 
+10. Username: Admin Password: Python
+
 
