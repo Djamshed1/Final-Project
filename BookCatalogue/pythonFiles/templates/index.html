@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+
+
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/tableC.css') }}">
+	<meta charset="utf-8" />
+	<title>Book Catalogue</title>
+	<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+</head>
+
+<body>
+<div class="table-title">
+<h3>Book Catalogue</h3>
+<form action="/searchBookByIsdn" method="post">
+	{% if errorCode == -1 %}
+		<p style="color:red;">{{info}}</p>
+	{% elif errorCode == 1 %}
+		<p style="color:#37DB05;">Successfully added to the catalog</p>
+	{% endif %}
+
+
+<input type="text" name="isdn" value="">
+<button type="submit">Add to my Catalogue</button>
+</form>
+<button><a href="logout">Logout</a></button>
+
+</div>
+<table class="table-fill">
+<thead>
+<tr>
+<th class="text-left">Title</th>
+<th class="text-left">Author</th>
+<th class="text-left">Page Count</th>
+<th class="text-left">Average rating</th>
+<th class="text-left">Action</th>
+
+</tr>
+</thead>
+
+{% for i in books %}
+	<tr>
+		<td class="text-left">{{i['title']}}</td>
+		<td class="text-left">{{i['author']}}</td>
+		<td class="text-left">{{i['page_count']}}</td>
+		<td class="text-left">{{i['average_rating']}}</td>
+		<td class="text-left"><button class="btn"><a style="text-decoration:none;" href="/bookDelete/{{i['id']}}"> Remove from Catalogue</a></button></td>
+	</tr>
+{% endfor %}
+</table>
+
+  </body>

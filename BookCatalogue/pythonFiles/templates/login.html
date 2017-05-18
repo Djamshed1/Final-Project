@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Login Form</title>
+  
+  
+  
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/loginC.css') }}">
+
+  
+</head>
+
+<body>
+  <body>
+	<div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>Login</h1>
+			</div>
+			{% if k ==1 %}
+			<p style="color:red">{{ info }}</p>
+			{% endif %}
+			<form action="/login/log" id="loginForm" method="post">
+			<div class="login-form">
+				<div class="control-group">
+				<input type="text" class="login-field" name="username" value="" placeholder="username" id="login-name">
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
+
+				<div class="control-group">
+				<input type="password" class="login-field" name="password" value="" placeholder="password" id="login-pass">
+				<label class="login-field-icon fui-lock" for="login-pass"></label>
+				</div>
+
+				<button class="btn btn-primary btn-large btn-block" type="submit"> login</button>
+
+			</div>
+			</form>
+		</div>
+	</div>
+</body>
+  
+  
+</body>
+</html>
